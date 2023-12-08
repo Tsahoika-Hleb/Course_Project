@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96440BBB2007CE23D769D755 /* Pods_Kursach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E07FD3DEA1B48936856925E /* Pods_Kursach.framework */; };
 		FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */; };
 		FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */; };
 		FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638332B212BBE00ECE1F2 /* ViewController.swift */; };
 		FC4638392B212BC000ECE1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4638382B212BC000ECE1F2 /* Assets.xcassets */; };
 		FC46383C2B212BC000ECE1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC46383A2B212BC000ECE1F2 /* LaunchScreen.storyboard */; };
+		FC4638482B22772200ECE1F2 /* ApiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638472B22772200ECE1F2 /* ApiViewModel.swift */; };
+		FC46384C2B22879700ECE1F2 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46384B2B22879700ECE1F2 /* APIResponse.swift */; };
+		FC4638512B228B8A00ECE1F2 /* ResponseHandler .swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46384D2B228B8900ECE1F2 /* ResponseHandler .swift */; };
+		FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46384E2B228B8900ECE1F2 /* NetworkManager.swift */; };
+		FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46384F2B228B8A00ECE1F2 /* APIModel.swift */; };
+		FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */; };
+		FC4638582B22A1E200ECE1F2 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638572B22A1E200ECE1F2 /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E07FD3DEA1B48936856925E /* Pods_Kursach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kursach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0FD45A4A52C251895811C3C /* Pods-Kursach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kursach.debug.xcconfig"; path = "Target Support Files/Pods-Kursach/Pods-Kursach.debug.xcconfig"; sourceTree = "<group>"; };
+		C1CE3A7D5DCFEDB3B2066627 /* Pods-Kursach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kursach.release.xcconfig"; path = "Target Support Files/Pods-Kursach/Pods-Kursach.release.xcconfig"; sourceTree = "<group>"; };
 		FC46382C2B212BBE00ECE1F2 /* Kursach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kursach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +33,13 @@
 		FC4638382B212BC000ECE1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC46383B2B212BC000ECE1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC46383D2B212BC000ECE1F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4638472B22772200ECE1F2 /* ApiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewModel.swift; sourceTree = "<group>"; };
+		FC46384B2B22879700ECE1F2 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		FC46384D2B228B8900ECE1F2 /* ResponseHandler .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ResponseHandler .swift"; sourceTree = "<group>"; };
+		FC46384E2B228B8900ECE1F2 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FC46384F2B228B8A00ECE1F2 /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBulder.swift; sourceTree = "<group>"; };
+		FC4638572B22A1E200ECE1F2 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96440BBB2007CE23D769D755 /* Pods_Kursach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		575B5225F07777FF433890CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0FD45A4A52C251895811C3C /* Pods-Kursach.debug.xcconfig */,
+				C1CE3A7D5DCFEDB3B2066627 /* Pods-Kursach.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A311E6FBADA860759F88B993 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E07FD3DEA1B48936856925E /* Pods_Kursach.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FC4638232B212BBE00ECE1F2 = {
 			isa = PBXGroup;
 			children = (
 				FC46382E2B212BBE00ECE1F2 /* Kursach */,
 				FC46382D2B212BBE00ECE1F2 /* Products */,
+				575B5225F07777FF433890CB /* Pods */,
+				A311E6FBADA860759F88B993 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +92,53 @@
 		FC46382E2B212BBE00ECE1F2 /* Kursach */ = {
 			isa = PBXGroup;
 			children = (
+				FC4638462B226F5300ECE1F2 /* Models */,
+				FC4638452B226F3200ECE1F2 /* Controllers */,
+				FC4638442B226F1A00ECE1F2 /* APIService */,
+				FC4638432B226F0400ECE1F2 /* ViewModels */,
 				FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */,
 				FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */,
-				FC4638332B212BBE00ECE1F2 /* ViewController.swift */,
 				FC4638382B212BC000ECE1F2 /* Assets.xcassets */,
 				FC46383A2B212BC000ECE1F2 /* LaunchScreen.storyboard */,
 				FC46383D2B212BC000ECE1F2 /* Info.plist */,
 			);
 			path = Kursach;
+			sourceTree = "<group>";
+		};
+		FC4638432B226F0400ECE1F2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC4638472B22772200ECE1F2 /* ApiViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC4638442B226F1A00ECE1F2 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				FC46384F2B228B8A00ECE1F2 /* APIModel.swift */,
+				FC46384E2B228B8900ECE1F2 /* NetworkManager.swift */,
+				FC46384D2B228B8900ECE1F2 /* ResponseHandler .swift */,
+				FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		FC4638452B226F3200ECE1F2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC4638332B212BBE00ECE1F2 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FC4638462B226F5300ECE1F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC46384B2B22879700ECE1F2 /* APIResponse.swift */,
+				FC4638572B22A1E200ECE1F2 /* APIRequest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4638402B212BC000ECE1F2 /* Build configuration list for PBXNativeTarget "Kursach" */;
 			buildPhases = (
+				D51CA4210977F129380B9151 /* [CP] Check Pods Manifest.lock */,
 				FC4638282B212BBE00ECE1F2 /* Sources */,
 				FC4638292B212BBE00ECE1F2 /* Frameworks */,
 				FC46382A2B212BBE00ECE1F2 /* Resources */,
+				96EC7C5AE80742B09303C0EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,14 +208,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		96EC7C5AE80742B09303C0EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kursach/Pods-Kursach-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kursach/Pods-Kursach-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kursach/Pods-Kursach-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D51CA4210977F129380B9151 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kursach-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC4638282B212BBE00ECE1F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */,
+				FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */,
+				FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */,
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
+				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
+				FC4638482B22772200ECE1F2 /* ApiViewModel.swift in Sources */,
+				FC4638512B228B8A00ECE1F2 /* ResponseHandler .swift in Sources */,
+				FC4638582B22A1E200ECE1F2 /* APIRequest.swift in Sources */,
+				FC46384C2B22879700ECE1F2 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,12 +403,14 @@
 		};
 		FC4638412B212BC000ECE1F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0FD45A4A52C251895811C3C /* Pods-Kursach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8322522RX9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kursach/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -302,12 +432,14 @@
 		};
 		FC4638422B212BC000ECE1F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CE3A7D5DCFEDB3B2066627 /* Pods-Kursach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8322522RX9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kursach/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
