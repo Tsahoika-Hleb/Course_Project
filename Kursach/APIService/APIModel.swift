@@ -64,19 +64,16 @@ enum APIModel: APIEndpoint, Equatable {
     var body: Data {
         switch self {
         case .processText(let text):
-            let analyzeRequest = CommentAnalyzerRequest(
-                comment: CommentAnalyzerRequest.CommentDetails(text: text),
-                requestedAttributes: CommentAnalyzerRequest.RequestedAttributes()
-            )
+            let analyzeRequest = [
+                "comment": ["text": text],
+                "requestedAttributes": ["TOXICITY": [:]]
+            ]
             var data = Data()
             do {
-                data = try JSONEncoder().encode(analyzeRequest)
-                print("place 1")
-                
+                data = try JSONSerialization.data(withJSONObject: analyzeRequest, options: [])
             } catch {
-                print("Error serializing JSON: \(error)")
+                debugPrint("Error serializing JSON: \(error)")
             }
-            print("place 2")
             return data
         }
     }

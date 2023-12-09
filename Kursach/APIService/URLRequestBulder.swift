@@ -9,8 +9,6 @@ final class URLRequestBuilder: URLRequestBuilding {
         let components = buildURL(config: config)
         guard let url = components.url else { return nil }
         
-        print(url)
-        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = config.method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -38,12 +38,9 @@ final class NetworkManager {
                                    isApiResponse: isApiResponse) { (result: Result<T, Error>) in
                 switch result {
                 case .success:
-                    
-                    print("here1")
                     completion(result)
                 case .failure(let error):
-                    print(error)
-                    
+                    debugPrint(error)
                     self?.handleRetry(config: config,
                                       responseHandler: responseHandler,
                                       isApiResponse: isApiResponse,
