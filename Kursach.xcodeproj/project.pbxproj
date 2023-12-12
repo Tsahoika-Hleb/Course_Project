@@ -20,6 +20,7 @@
 		FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46384F2B228B8A00ECE1F2 /* APIModel.swift */; };
 		FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */; };
 		FC46385A2B24982000ECE1F2 /* testFile.json in Resources */ = {isa = PBXBuildFile; fileRef = FC4638592B24982000ECE1F2 /* testFile.json */; };
+		FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FC46384F2B228B8A00ECE1F2 /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBulder.swift; sourceTree = "<group>"; };
 		FC4638592B24982000ECE1F2 /* testFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testFile.json; sourceTree = "<group>"; };
+		FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		FC46382E2B212BBE00ECE1F2 /* Kursach */ = {
 			isa = PBXGroup;
 			children = (
+				FC46385B2B2703FC00ECE1F2 /* Extensions */,
 				FC4638592B24982000ECE1F2 /* testFile.json */,
 				FC4638462B226F5300ECE1F2 /* Models */,
 				FC4638452B226F3200ECE1F2 /* Controllers */,
@@ -139,6 +142,14 @@
 				FC46384B2B22879700ECE1F2 /* APIResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FC46385B2B2703FC00ECE1F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
 				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
 				FC4638482B22772200ECE1F2 /* ApiViewModel.swift in Sources */,
+				FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */,
 				FC4638512B228B8A00ECE1F2 /* ResponseHandler .swift in Sources */,
 				FC46384C2B22879700ECE1F2 /* APIResponse.swift in Sources */,
 			);
