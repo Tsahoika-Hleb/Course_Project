@@ -4,15 +4,15 @@
       "spanScores": [
         {
           "begin": 0,
-          "end": 472,
+          "end": 25,
           "score": {
-            "value": 0.7761081,
+            "value": 0.9391453,
             "type": "PROBABILITY"
           }
         }
       ],
       "summaryScore": {
-        "value": 0.7761081,
+        "value": 0.9391453,
         "type": "PROBABILITY"
       }
     }

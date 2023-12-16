@@ -62,3 +62,4 @@ struct DefaultResponseHandler: ResponseHandler {
         return nil
     }
 }
+

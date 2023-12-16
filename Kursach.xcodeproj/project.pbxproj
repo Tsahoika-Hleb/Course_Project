@@ -96,9 +96,9 @@
 			children = (
 				FC46385B2B2703FC00ECE1F2 /* Extensions */,
 				FC4638592B24982000ECE1F2 /* testFile.json */,
+				FC4638442B226F1A00ECE1F2 /* APIService */,
 				FC4638462B226F5300ECE1F2 /* Models */,
 				FC4638452B226F3200ECE1F2 /* Controllers */,
-				FC4638442B226F1A00ECE1F2 /* APIService */,
 				FC4638432B226F0400ECE1F2 /* ViewModels */,
 				FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */,
 				FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */,

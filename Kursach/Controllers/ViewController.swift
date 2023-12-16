@@ -88,7 +88,7 @@ final class ViewController: UIViewController {
             let toxity = (self.viewModel.empData?.attributeScores["TOXICITY"]?.summaryScore.value ?? -1) * 100
             self.resultLabel.text = "result: " + String(format: "%.2f", toxity) + "%"
             
-            let color: UIColor = toxity < 25 ? .green : toxity < 50 ? .yellow : toxity < 75 ? .orange : toxity < 100 ? .red : .black
+            let color: UIColor = toxity < 25 ? .green : toxity < 50 ? UIColor.systemYellow : toxity < 75 ? .orange : toxity < 100 ? .red : .black
             self.messageTextView.textColor = color
         }
     }
@@ -135,3 +135,4 @@ final class ViewController: UIViewController {
         }
     }
 }
+

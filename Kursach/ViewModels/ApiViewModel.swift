@@ -13,12 +13,13 @@ class ApiViewModel: NSObject {
     init(networkManager: NetworkManager = NetworkManager()) {
         self.networkManager = networkManager
     }
-        
+    
     var bindEmployeeViewModelToController : (() -> ()) = {}
     
     func callAPI(text: String) {
-        networkManager.request(config: .processText(text: text),
-                               responseHandler: DefaultResponseHandler()) { [weak self] (result: Result<APIResponse, Error>) in
+        networkManager.request(config: .analyzeComment(text: text),
+                               responseHandler: DefaultResponseHandler())
+        { [weak self] (result: Result<APIResponse, Error>) in
             switch result {
             case .success(let success):
                 self?.empData = success

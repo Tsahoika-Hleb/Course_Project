@@ -20,18 +20,18 @@ protocol APIEndpoint {
 }
 
 enum APIModel: APIEndpoint, Equatable {
-    case processText(text: String)
+    case analyzeComment(text: String)
     
     var baseURL: String {
         switch self {
-        case .processText:
+        case .analyzeComment:
             return "commentanalyzer.googleapis.com"
         }
     }
 
     var path: String {
         switch self {
-        case .processText:
+        case .analyzeComment:
             return "/v1alpha1/comments:analyze"
         }
     }
@@ -42,7 +42,7 @@ enum APIModel: APIEndpoint, Equatable {
 
     var parameters: [URLQueryItem] {
         switch self {
-        case .processText:
+        case .analyzeComment:
             return [
                 URLQueryItem(name: "key",
                              value: "AIzaSyBoC5t3tYIZ5_mOMYy9B50uJQHzvl41thY")
@@ -52,7 +52,7 @@ enum APIModel: APIEndpoint, Equatable {
 
     var method: HTTPMethod {
         switch self {
-        case .processText:
+        case .analyzeComment:
             return .post
         }
     }
@@ -63,7 +63,7 @@ enum APIModel: APIEndpoint, Equatable {
     
     var body: Data {
         switch self {
-        case .processText(let text):
+        case .analyzeComment(let text):
             let analyzeRequest = [
                 "comment": ["text": text],
                 "requestedAttributes": ["TOXICITY": [:]]
