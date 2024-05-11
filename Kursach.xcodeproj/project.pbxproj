@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		96440BBB2007CE23D769D755 /* Pods_Kursach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E07FD3DEA1B48936856925E /* Pods_Kursach.framework */; };
+		FC25F1212BF01EA500911513 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25F1202BF01EA500911513 /* LogInVC.swift */; };
+		FC25F1252BF027F800911513 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FC25F1242BF027F800911513 /* Localizable.xcstrings */; };
+		FC25F1272BF028E300911513 /* LocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25F1262BF028E300911513 /* LocalizationProvider.swift */; };
+		FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25F1282BF035AC00911513 /* AuthStrings.swift */; };
 		FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */; };
 		FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */; };
 		FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638332B212BBE00ECE1F2 /* ViewController.swift */; };
@@ -21,12 +25,17 @@
 		FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */; };
 		FC46385A2B24982000ECE1F2 /* testFile.json in Resources */ = {isa = PBXBuildFile; fileRef = FC4638592B24982000ECE1F2 /* testFile.json */; };
 		FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */; };
+		FCEE77F92BF006B60017AB42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCEE77F82BF006B60017AB42 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E07FD3DEA1B48936856925E /* Pods_Kursach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kursach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FD45A4A52C251895811C3C /* Pods-Kursach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kursach.debug.xcconfig"; path = "Target Support Files/Pods-Kursach/Pods-Kursach.debug.xcconfig"; sourceTree = "<group>"; };
 		C1CE3A7D5DCFEDB3B2066627 /* Pods-Kursach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kursach.release.xcconfig"; path = "Target Support Files/Pods-Kursach/Pods-Kursach.release.xcconfig"; sourceTree = "<group>"; };
+		FC25F1202BF01EA500911513 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		FC25F1242BF027F800911513 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		FC25F1262BF028E300911513 /* LocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationProvider.swift; sourceTree = "<group>"; };
+		FC25F1282BF035AC00911513 /* AuthStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStrings.swift; sourceTree = "<group>"; };
 		FC46382C2B212BBE00ECE1F2 /* Kursach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kursach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +51,7 @@
 		FC4638502B228B8A00ECE1F2 /* URLRequestBulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBulder.swift; sourceTree = "<group>"; };
 		FC4638592B24982000ECE1F2 /* testFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testFile.json; sourceTree = "<group>"; };
 		FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
+		FCEE77F82BF006B60017AB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +83,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC25F11F2BF01E7D00911513 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FC25F1202BF01EA500911513 /* LogInVC.swift */,
+				FC25F1282BF035AC00911513 /* AuthStrings.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FC25F1222BF026CD00911513 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FC25F1232BF027E100911513 /* Localization */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		FC25F1232BF027E100911513 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				FC25F1242BF027F800911513 /* Localizable.xcstrings */,
+				FC25F1262BF028E300911513 /* LocalizationProvider.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		FC4638232B212BBE00ECE1F2 = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +130,13 @@
 		FC46382E2B212BBE00ECE1F2 /* Kursach */ = {
 			isa = PBXGroup;
 			children = (
+				FC25F1222BF026CD00911513 /* SupportFiles */,
+				FCEE77F82BF006B60017AB42 /* GoogleService-Info.plist */,
 				FC46385B2B2703FC00ECE1F2 /* Extensions */,
 				FC4638592B24982000ECE1F2 /* testFile.json */,
 				FC4638442B226F1A00ECE1F2 /* APIService */,
 				FC4638462B226F5300ECE1F2 /* Models */,
-				FC4638452B226F3200ECE1F2 /* Controllers */,
+				FC4638452B226F3200ECE1F2 /* ViewControllers */,
 				FC4638432B226F0400ECE1F2 /* ViewModels */,
 				FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */,
 				FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */,
@@ -128,12 +166,13 @@
 			path = APIService;
 			sourceTree = "<group>";
 		};
-		FC4638452B226F3200ECE1F2 /* Controllers */ = {
+		FC4638452B226F3200ECE1F2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC25F11F2BF01E7D00911513 /* Auth */,
 				FC4638332B212BBE00ECE1F2 /* ViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		FC4638462B226F5300ECE1F2 /* Models */ = {
@@ -196,6 +235,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FC4638232B212BBE00ECE1F2;
 			productRefGroup = FC46382D2B212BBE00ECE1F2 /* Products */;
@@ -213,7 +253,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC46383C2B212BC000ECE1F2 /* LaunchScreen.storyboard in Resources */,
+				FC25F1252BF027F800911513 /* Localizable.xcstrings in Resources */,
 				FC4638392B212BC000ECE1F2 /* Assets.xcassets in Resources */,
+				FCEE77F92BF006B60017AB42 /* GoogleService-Info.plist in Resources */,
 				FC46385A2B24982000ECE1F2 /* testFile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,11 +311,14 @@
 			files = (
 				FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */,
 				FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */,
+				FC25F1212BF01EA500911513 /* LogInVC.swift in Sources */,
 				FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */,
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
+				FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */,
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
 				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
 				FC4638482B22772200ECE1F2 /* ApiViewModel.swift in Sources */,
+				FC25F1272BF028E300911513 /* LocalizationProvider.swift in Sources */,
 				FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */,
 				FC4638512B228B8A00ECE1F2 /* ResponseHandler .swift in Sources */,
 				FC46384C2B22879700ECE1F2 /* APIResponse.swift in Sources */,
@@ -434,7 +479,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gleb.Kursach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleb.GraduateWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -463,7 +508,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gleb.Kursach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleb.GraduateWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
