@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>561593867472-49ks8l52p6rhaq5ftr7otqgd13gdfktb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.561593867472-49ks8l52p6rhaq5ftr7otqgd13gdfktb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD72sdJo1RdtlGj-VA3xnVU_O5DMw7MFMI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>561593867472</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gleb.GraduateWork</string>
+	<key>PROJECT_ID</key>
+	<string>graduatework-f5767</string>
+	<key>STORAGE_BUCKET</key>
+	<string>graduatework-f5767.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:561593867472:ios:0dae6b5c649f041cb6d2d5</string>
+</dict>
+</plist>

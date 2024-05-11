@@ -7,4 +7,11 @@ target 'Kursach' do
 
   # Pods for Kursach
   pod 'SnapKit', '~> 5.6.0'
+  pod 'IQKeyboardManagerSwift'
+	
+  # Google Firebase pods
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseDatabase'
+  
 end
