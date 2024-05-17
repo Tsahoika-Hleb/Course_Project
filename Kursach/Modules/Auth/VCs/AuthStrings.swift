@@ -5,6 +5,10 @@ enum AuthStrings: String {
     case passwordPlaceholder = "PasswordPlaceholder"
     case logInButton = "LogInButton"
     case registrationButton = "RegisterButton"
+    case emptyFieldsAlert = "EmptyFieldsAlert"
+    case usernamePlaceholder = "UsernamePlaceholder"
+    case confirmPasswordPlaceholder = "ConfirmPasswordPlaceholder"
+    case passwordMismatchAlert = "PasswordMismatchAlert"
 }
 
 extension AuthStrings {

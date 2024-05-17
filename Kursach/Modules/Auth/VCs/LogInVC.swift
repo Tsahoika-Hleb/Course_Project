@@ -16,6 +16,10 @@ private enum UIConstants {
 
 final class LoginViewController: UIViewController {
     
+    //MARK: - Private properties
+    private let viewModel: AuthViewModel?
+    private let coordinator: AuthNavigationCoordinator?
+    
     // MARK: - UI Components
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
@@ -65,10 +69,21 @@ final class LoginViewController: UIViewController {
     
     
     // MARK: - Lifecycle
+    init(viewModel: AuthViewModel, coordinator: AuthNavigationCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        navigationItem.hidesBackButton = true
     }
     
     // MARK: - Setup
@@ -111,12 +126,24 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func didTapLoginButton() {
-        // TODO: Тут будет логика логина
-        print("Login button tapped")
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            UIAlertController.showError(message: AuthStrings.emptyFieldsAlert.localizedString,in: self)
+            return
+        }
+
+        viewModel?.logIn(email: email, password: password) { result in
+            switch result {
+            case .success(let user):
+                print("User registered: \(user.email ?? "")")
+            case .failure(let error):
+                UIAlertController.showError(message: error.localizedDescription, in: self)
+            }
+        }
     }
     
     @objc private func didTapRegisterButton() {
-        // TODO: Тут будет логика перехода на экран регистрации
-        print("Register button tapped")
+        coordinator?.showRegistrationScreen()
     }
 }
