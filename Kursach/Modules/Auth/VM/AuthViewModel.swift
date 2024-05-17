@@ -15,14 +15,14 @@ class AuthViewModel {
         password: String,
         completion: @escaping (Result<User, Error>) -> Void
     ) {
-        databaseManager.userExists(with: email) { isExist in
+        let chatUser = ChatUser(username: username, email: email)
+        databaseManager.userExists(with: chatUser) { isExist in
             if isExist {
                 completion(.failure(AuthErrors.userAlreadyExists))
                 return
             } else {
                 self.registerNewUser(
-                    username: username,
-                    email: email,
+                    chatUser: chatUser,
                     password: password,
                     completion: completion
                 )
@@ -31,17 +31,14 @@ class AuthViewModel {
     }
     
     private func registerNewUser(
-        username: String,
-        email: String,
+        chatUser: ChatUser,
         password: String,
         completion: @escaping (Result<User, Error>) -> Void
     ) {
-        authManager.register(email: email, password: password) { result in
+        authManager.register(email: chatUser.email, password: password) { result in
             switch result {
             case .success(let user):
-                self.databaseManager.insert(
-                    user: ChatUser(username: username, email: email)
-                )
+                self.databaseManager.insert(user: chatUser)
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))

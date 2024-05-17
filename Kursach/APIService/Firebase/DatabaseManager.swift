@@ -13,9 +13,9 @@ final class DatabaseManager {
 extension DatabaseManager {
     
     /// Checks if the user already exists
-    func userExists(with email: String,
+    func userExists(with user: ChatUser,
                     complition: @escaping ((Bool) -> Void)) {
-        database.child(email).observeSingleEvent(of: .value) { snapshot in
+        database.child(user.safeEmail).observeSingleEvent(of: .value) { snapshot in
             guard snapshot.value as? String != nil else {
                 complition(false)
                 return
@@ -28,7 +28,7 @@ extension DatabaseManager {
     
     /// Insert user into database
     func insert(user: ChatUser) {
-        database.child(user.email).setValue([
+        database.child(user.safeEmail).setValue([
             "username": user.username
         ])
     }

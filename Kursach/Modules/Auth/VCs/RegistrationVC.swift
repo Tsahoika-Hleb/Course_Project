@@ -25,6 +25,9 @@ final class RegistrationViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = AuthStrings.usernamePlaceholder.localizedString
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.returnKeyType = .next
         return textField
     }()
     
@@ -32,6 +35,9 @@ final class RegistrationViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = AuthStrings.emailPlaceholder.localizedString
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.returnKeyType = .next
         return textField
     }()
     
@@ -40,6 +46,9 @@ final class RegistrationViewController: UIViewController {
         textField.placeholder = AuthStrings.passwordPlaceholder.localizedString
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.returnKeyType = .next
         return textField
     }()
     
@@ -48,6 +57,9 @@ final class RegistrationViewController: UIViewController {
         textField.placeholder = AuthStrings.confirmPasswordPlaceholder.localizedString
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.returnKeyType = .done
         return textField
     }()
     

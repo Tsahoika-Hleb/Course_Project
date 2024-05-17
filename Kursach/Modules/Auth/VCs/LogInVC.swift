@@ -28,6 +28,7 @@ final class LoginViewController: UIViewController {
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.returnKeyType = .next
+        textField.autocorrectionType = .no
         return textField
     }()
     
@@ -37,6 +38,8 @@ final class LoginViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         return textField
     }()
     
