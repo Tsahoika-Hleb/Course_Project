@@ -9,6 +9,7 @@ enum AuthStrings: String {
     case usernamePlaceholder = "UsernamePlaceholder"
     case confirmPasswordPlaceholder = "ConfirmPasswordPlaceholder"
     case passwordMismatchAlert = "PasswordMismatchAlert"
+    case userAlreadyExistError = "UserAlreadyExistError"
 }
 
 extension AuthStrings {

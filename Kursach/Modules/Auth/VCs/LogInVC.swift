@@ -136,7 +136,8 @@ final class LoginViewController: UIViewController {
         viewModel?.logIn(email: email, password: password) { result in
             switch result {
             case .success(let user):
-                print("User registered: \(user.email ?? "")")
+                print("User: \(user.email ?? "")")
+                // TODO: Go to chat screen
             case .failure(let error):
                 UIAlertController.showError(message: error.localizedDescription, in: self)
             }

@@ -163,10 +163,11 @@ final class RegistrationViewController: UIViewController {
             return
         }
 
-        viewModel?.register(email: email, password: password) { result in
+        viewModel?.register(username: username, email: email, password: password) { result in
             switch result {
             case .success(let user):
                 print("User registered: \(user.email ?? "")")
+                // TODO: Go to chat screen
             case .failure(let error):
                 UIAlertController.showError(message: error.localizedDescription, in: self)
             }

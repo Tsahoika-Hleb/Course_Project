@@ -26,6 +26,10 @@
 		FC46385A2B24982000ECE1F2 /* testFile.json in Resources */ = {isa = PBXBuildFile; fileRef = FC4638592B24982000ECE1F2 /* testFile.json */; };
 		FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */; };
 		FC4FF96B2BF6FDEC00F711BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF96A2BF6FDEC00F711BF /* AuthViewModel.swift */; };
+		FC4FF96E2BF70F0A00F711BF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF96D2BF70F0A00F711BF /* DatabaseManager.swift */; };
+		FC4FF9702BF7102A00F711BF /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF96F2BF7102A00F711BF /* ChatUser.swift */; };
+		FC4FF9722BF79B2100F711BF /* StartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF9712BF79B2100F711BF /* StartHelper.swift */; };
+		FC4FF9742BF7A45700F711BF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF9732BF7A45700F711BF /* AuthManager.swift */; };
 		FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */; };
 		FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */; };
 		FCBD00182BF6F09400F26795 /* AuthNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AuthNavigationCoordinator.swift */; };
@@ -56,6 +60,10 @@
 		FC4638592B24982000ECE1F2 /* testFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testFile.json; sourceTree = "<group>"; };
 		FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		FC4FF96A2BF6FDEC00F711BF /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FC4FF96D2BF70F0A00F711BF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		FC4FF96F2BF7102A00F711BF /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		FC4FF9712BF79B2100F711BF /* StartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartHelper.swift; sourceTree = "<group>"; };
+		FC4FF9732BF7A45700F711BF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		FCBD00172BF6F09400F26795 /* AuthNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 				FC4638432B226F0400ECE1F2 /* ViewModels */,
 				FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */,
 				FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */,
+				FC4FF9712BF79B2100F711BF /* StartHelper.swift */,
 				FC4638382B212BC000ECE1F2 /* Assets.xcassets */,
 				FC46383A2B212BC000ECE1F2 /* LaunchScreen.storyboard */,
 				FC46383D2B212BC000ECE1F2 /* Info.plist */,
@@ -158,6 +167,7 @@
 		FC4638442B226F1A00ECE1F2 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				FC4FF96C2BF70EF400F711BF /* Firebase */,
 				FC46384F2B228B8A00ECE1F2 /* APIModel.swift */,
 				FC46384E2B228B8900ECE1F2 /* NetworkManager.swift */,
 				FC46384D2B228B8900ECE1F2 /* ResponseHandler .swift */,
@@ -178,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				FC46384B2B22879700ECE1F2 /* APIResponse.swift */,
+				FC4FF96F2BF7102A00F711BF /* ChatUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +200,15 @@
 				FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC4FF96C2BF70EF400F711BF /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FC4FF96D2BF70F0A00F711BF /* DatabaseManager.swift */,
+				FC4FF9732BF7A45700F711BF /* AuthManager.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		FCBD00132BF6F01D00F26795 /* Modules */ = {
@@ -346,13 +366,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */,
+				FC4FF9742BF7A45700F711BF /* AuthManager.swift in Sources */,
 				FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */,
 				FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */,
 				FC25F1212BF01EA500911513 /* LogInVC.swift in Sources */,
 				FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */,
+				FC4FF9702BF7102A00F711BF /* ChatUser.swift in Sources */,
+				FC4FF9722BF79B2100F711BF /* StartHelper.swift in Sources */,
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
 				FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */,
 				FC4FF96B2BF6FDEC00F711BF /* AuthViewModel.swift in Sources */,
+				FC4FF96E2BF70F0A00F711BF /* DatabaseManager.swift in Sources */,
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
 				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
 				FCBD00182BF6F09400F26795 /* AuthNavigationCoordinator.swift in Sources */,
