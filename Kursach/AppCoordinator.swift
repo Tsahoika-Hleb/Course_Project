@@ -1,13 +1,19 @@
 import UIKit
 
-final class AuthNavigationCoordinator {
+final class AppCoordinator {
     
     weak var navigationController: UINavigationController?
-    private let viewModel: AuthViewModel
+    private let authViewModel: AuthViewModel
+    private let allChatsViewModel: ChatsViewModel
 
-    init(navigationController: UINavigationController, viewModel: AuthViewModel) {
+    init(
+        navigationController: UINavigationController,
+        authViewModel: AuthViewModel,
+        allChatsViewModel: ChatsViewModel
+    ) {
         self.navigationController = navigationController
-        self.viewModel = viewModel
+        self.authViewModel = authViewModel
+        self.allChatsViewModel = allChatsViewModel
     }
     
     func showLogInScreen() {
@@ -19,7 +25,7 @@ final class AuthNavigationCoordinator {
                 }
             }
         }
-        let loginViewController = LoginViewController(viewModel: viewModel, coordinator: self)
+        let loginViewController = LoginViewController(viewModel: authViewModel, coordinator: self)
         navigationController?.pushViewController(loginViewController, animated: false)
     }
     
@@ -32,7 +38,13 @@ final class AuthNavigationCoordinator {
                 }
             }
         }
-        let registrationViewController = RegistrationViewController(viewModel: viewModel, coordinator: self)
+        let registrationViewController = RegistrationViewController(viewModel: authViewModel, coordinator: self)
         navigationController?.pushViewController(registrationViewController, animated: false)
+    }
+    
+    func showAllChatsScreen() {
+        let allChatsVC = ChatsViewController(viewModel: allChatsViewModel)
+        navigationController?.setViewControllers([allChatsVC], animated: false)
+
     }
 }

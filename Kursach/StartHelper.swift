@@ -12,15 +12,19 @@ final class StartHelper {
     func startApp() {
         guard let navigationController else { return }
         
+        let authViewModel = AuthViewModel()
+        let allChatsViewModel = ChatsViewModel()
+        let coordinator = AppCoordinator(
+            navigationController: navigationController,
+            authViewModel: authViewModel,
+            allChatsViewModel: allChatsViewModel
+        )
+        
         if FirebaseAuth.Auth.auth().currentUser == nil {
-            let viewModel = AuthViewModel()
-            let coordinator = AuthNavigationCoordinator(
-                navigationController: navigationController,
-                viewModel: viewModel
-            )
             coordinator.showLogInScreen()
         } else {
-            // TODO: Show chat screen
+            coordinator.showAllChatsScreen()
+            // TODO: Delete this
             do {
                 try FirebaseAuth.Auth.auth().signOut()
             } catch {

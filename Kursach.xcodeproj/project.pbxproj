@@ -31,9 +31,13 @@
 		FC4FF9722BF79B2100F711BF /* StartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF9712BF79B2100F711BF /* StartHelper.swift */; };
 		FC4FF9742BF7A45700F711BF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF9732BF7A45700F711BF /* AuthManager.swift */; };
 		FC4FF9762BF7B46900F711BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4FF9752BF7B46900F711BF /* GoogleService-Info.plist */; };
+		FC4FF9782BF7B97800F711BF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF9772BF7B97800F711BF /* Chat.swift */; };
+		FC4FF97B2BF7B9AF00F711BF /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97A2BF7B9AF00F711BF /* ChatTableViewCell.swift */; };
+		FC4FF97D2BF816A200F711BF /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */; };
+		FC4FF97F2BF81DBB00F711BF /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */; };
 		FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */; };
 		FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */; };
-		FCBD00182BF6F09400F26795 /* AuthNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AuthNavigationCoordinator.swift */; };
+		FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,9 +69,13 @@
 		FC4FF9712BF79B2100F711BF /* StartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartHelper.swift; sourceTree = "<group>"; };
 		FC4FF9732BF7A45700F711BF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FC4FF9752BF7B46900F711BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC4FF9772BF7B97800F711BF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		FC4FF97A2BF7B9AF00F711BF /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
-		FCBD00172BF6F09400F26795 /* AuthNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationCoordinator.swift; sourceTree = "<group>"; };
+		FCBD00172BF6F09400F26795 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +156,7 @@
 				FC4638432B226F0400ECE1F2 /* ViewModels */,
 				FC46382F2B212BBE00ECE1F2 /* AppDelegate.swift */,
 				FC4638312B212BBE00ECE1F2 /* SceneDelegate.swift */,
+				FCBD00172BF6F09400F26795 /* AppCoordinator.swift */,
 				FC4FF9712BF79B2100F711BF /* StartHelper.swift */,
 				FC4638382B212BC000ECE1F2 /* Assets.xcassets */,
 				FC46383A2B212BC000ECE1F2 /* LaunchScreen.storyboard */,
@@ -189,6 +198,7 @@
 			children = (
 				FC46384B2B22879700ECE1F2 /* APIResponse.swift */,
 				FC4FF96F2BF7102A00F711BF /* ChatUser.swift */,
+				FC4FF9772BF7B97800F711BF /* Chat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,9 +221,28 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		FC4FF9792BF7B9A000F711BF /* AllChats */ = {
+			isa = PBXGroup;
+			children = (
+				FC4FF9802BF81E0200F711BF /* ChatsCell */,
+				FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */,
+				FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */,
+			);
+			path = AllChats;
+			sourceTree = "<group>";
+		};
+		FC4FF9802BF81E0200F711BF /* ChatsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC4FF97A2BF7B9AF00F711BF /* ChatTableViewCell.swift */,
+			);
+			path = ChatsCell;
+			sourceTree = "<group>";
+		};
 		FCBD00132BF6F01D00F26795 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FC4FF9792BF7B9A000F711BF /* AllChats */,
 				FCBD00142BF6F03A00F26795 /* Auth */,
 			);
 			path = Modules;
@@ -224,7 +253,6 @@
 			children = (
 				FCBD00162BF6F06A00F26795 /* VM */,
 				FCBD00152BF6F04D00F26795 /* VCs */,
-				FCBD00172BF6F09400F26795 /* AuthNavigationCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -374,14 +402,18 @@
 				FC4FF9702BF7102A00F711BF /* ChatUser.swift in Sources */,
 				FC4FF9722BF79B2100F711BF /* StartHelper.swift in Sources */,
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
+				FC4FF97B2BF7B9AF00F711BF /* ChatTableViewCell.swift in Sources */,
+				FC4FF97D2BF816A200F711BF /* ChatsViewController.swift in Sources */,
 				FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */,
 				FC4FF96B2BF6FDEC00F711BF /* AuthViewModel.swift in Sources */,
 				FC4FF96E2BF70F0A00F711BF /* DatabaseManager.swift in Sources */,
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
 				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
-				FCBD00182BF6F09400F26795 /* AuthNavigationCoordinator.swift in Sources */,
+				FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */,
+				FC4FF97F2BF81DBB00F711BF /* ChatsViewModel.swift in Sources */,
 				FC4638482B22772200ECE1F2 /* ApiViewModel.swift in Sources */,
 				FC25F1272BF028E300911513 /* LocalizationProvider.swift in Sources */,
+				FC4FF9782BF7B97800F711BF /* Chat.swift in Sources */,
 				FC46385D2B27041C00ECE1F2 /* UITextView+extension.swift in Sources */,
 				FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */,
 				FC4638512B228B8A00ECE1F2 /* ResponseHandler .swift in Sources */,

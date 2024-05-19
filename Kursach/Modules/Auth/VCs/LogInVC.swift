@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
     
     //MARK: - Private properties
     private let viewModel: AuthViewModel?
-    private let coordinator: AuthNavigationCoordinator?
+    private let coordinator: AppCoordinator?
     
     // MARK: - UI Components
     private lazy var emailTextField: UITextField = {
@@ -72,7 +72,7 @@ final class LoginViewController: UIViewController {
     
     
     // MARK: - Lifecycle
-    init(viewModel: AuthViewModel, coordinator: AuthNavigationCoordinator) {
+    init(viewModel: AuthViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -139,8 +139,7 @@ final class LoginViewController: UIViewController {
         viewModel?.logIn(email: email, password: password) { result in
             switch result {
             case .success(let user):
-                print("User: \(user.email ?? "")")
-                // TODO: Go to chat screen
+                self.coordinator?.showAllChatsScreen()
             case .failure(let error):
                 UIAlertController.showError(message: error.localizedDescription, in: self)
             }

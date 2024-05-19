@@ -31,5 +31,21 @@ extension DatabaseManager {
         database.child(user.safeEmail).setValue([
             "username": user.username
         ])
+        
+        
+        let userNode: [[String: String]] = [
+            [
+                "username": user.username,
+                "email": user.safeEmail
+            ]
+        ]
+        database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if var userCollection = snapshot.value as? [[String:String]] {
+                userCollection.append(contentsOf: userNode)
+                self.database.child("users").setValue(userCollection)
+            } else {
+                self.database.child("users").setValue(userNode)
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ final class RegistrationViewController: UIViewController {
     
     //MARK: - Private properties
     private let viewModel: AuthViewModel?
-    private let coordinator: AuthNavigationCoordinator?
+    private let coordinator: AppCoordinator?
     
     // MARK: - UI Elements
     private let usernameTextField: UITextField = {
@@ -91,7 +91,7 @@ final class RegistrationViewController: UIViewController {
     }()
     
     // MARK: - Life Cycle
-    init(viewModel: AuthViewModel, coordinator: AuthNavigationCoordinator) {
+    init(viewModel: AuthViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -178,8 +178,7 @@ final class RegistrationViewController: UIViewController {
         viewModel?.register(username: username, email: email, password: password) { result in
             switch result {
             case .success(let user):
-                print("User registered: \(user.email ?? "")")
-                // TODO: Go to chat screen
+                self.coordinator?.showAllChatsScreen()
             case .failure(let error):
                 UIAlertController.showError(message: error.localizedDescription, in: self)
             }
