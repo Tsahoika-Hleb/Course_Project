@@ -38,6 +38,12 @@
 		FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */; };
 		FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */; };
 		FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AppCoordinator.swift */; };
+		FCE424132BFC55CF00A43600 /* PerspectiveAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */; };
+		FCE424162BFC606900A43600 /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = FCE424152BFC606900A43600 /* Replicate */; };
+		FCE424192BFC625800A43600 /* ReplicateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424182BFC625800A43600 /* ReplicateManager.swift */; };
+		FCE4241E2BFC711400A43600 /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4241D2BFC711400A43600 /* NewConversationVC.swift */; };
+		FCE424202BFC729800A43600 /* ChatListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4241F2BFC729800A43600 /* ChatListStrings.swift */; };
+		FCE424222BFD24B800A43600 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424212BFD24B800A43600 /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +82,11 @@
 		FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		FCBD00172BF6F09400F26795 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveAPIManager.swift; sourceTree = "<group>"; };
+		FCE424182BFC625800A43600 /* ReplicateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicateManager.swift; sourceTree = "<group>"; };
+		FCE4241D2BFC711400A43600 /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
+		FCE4241F2BFC729800A43600 /* ChatListStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListStrings.swift; sourceTree = "<group>"; };
+		FCE424212BFD24B800A43600 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE424162BFC606900A43600 /* Replicate in Frameworks */,
 				96440BBB2007CE23D769D755 /* Pods_Kursach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +188,8 @@
 		FC4638442B226F1A00ECE1F2 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				FCE424172BFC624000A43600 /* Replicate */,
+				FCE424112BFC55B500A43600 /* PerspectiveAPI */,
 				FC4FF96C2BF70EF400F711BF /* Firebase */,
 				FC46384F2B228B8A00ECE1F2 /* APIModel.swift */,
 				FC46384E2B228B8900ECE1F2 /* NetworkManager.swift */,
@@ -224,9 +238,11 @@
 		FC4FF9792BF7B9A000F711BF /* AllChats */ = {
 			isa = PBXGroup;
 			children = (
+				FCE4241A2BFC70D800A43600 /* NewConversation */,
 				FC4FF9802BF81E0200F711BF /* ChatsCell */,
 				FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */,
 				FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */,
+				FCE4241F2BFC729800A43600 /* ChatListStrings.swift */,
 			);
 			path = AllChats;
 			sourceTree = "<group>";
@@ -275,6 +291,31 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
+		FCE424112BFC55B500A43600 /* PerspectiveAPI */ = {
+			isa = PBXGroup;
+			children = (
+				FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */,
+			);
+			path = PerspectiveAPI;
+			sourceTree = "<group>";
+		};
+		FCE424172BFC624000A43600 /* Replicate */ = {
+			isa = PBXGroup;
+			children = (
+				FCE424182BFC625800A43600 /* ReplicateManager.swift */,
+			);
+			path = Replicate;
+			sourceTree = "<group>";
+		};
+		FCE4241A2BFC70D800A43600 /* NewConversation */ = {
+			isa = PBXGroup;
+			children = (
+				FCE4241D2BFC711400A43600 /* NewConversationVC.swift */,
+				FCE424212BFD24B800A43600 /* UserTableViewCell.swift */,
+			);
+			path = NewConversation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +334,9 @@
 			dependencies = (
 			);
 			name = Kursach;
+			packageProductDependencies = (
+				FCE424152BFC606900A43600 /* Replicate */,
+			);
 			productName = Kursach;
 			productReference = FC46382C2B212BBE00ECE1F2 /* Kursach.app */;
 			productType = "com.apple.product-type.application";
@@ -322,6 +366,9 @@
 				ru,
 			);
 			mainGroup = FC4638232B212BBE00ECE1F2;
+			packageReferences = (
+				FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */,
+			);
 			productRefGroup = FC46382D2B212BBE00ECE1F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -394,19 +441,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */,
+				FCE424192BFC625800A43600 /* ReplicateManager.swift in Sources */,
 				FC4FF9742BF7A45700F711BF /* AuthManager.swift in Sources */,
 				FC4638342B212BBE00ECE1F2 /* ViewController.swift in Sources */,
+				FCE424222BFD24B800A43600 /* UserTableViewCell.swift in Sources */,
 				FC4638532B228B8A00ECE1F2 /* APIModel.swift in Sources */,
 				FC25F1212BF01EA500911513 /* LogInVC.swift in Sources */,
+				FCE424132BFC55CF00A43600 /* PerspectiveAPIManager.swift in Sources */,
 				FC4638542B228B8A00ECE1F2 /* URLRequestBulder.swift in Sources */,
 				FC4FF9702BF7102A00F711BF /* ChatUser.swift in Sources */,
 				FC4FF9722BF79B2100F711BF /* StartHelper.swift in Sources */,
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
 				FC4FF97B2BF7B9AF00F711BF /* ChatTableViewCell.swift in Sources */,
 				FC4FF97D2BF816A200F711BF /* ChatsViewController.swift in Sources */,
+				FCE424202BFC729800A43600 /* ChatListStrings.swift in Sources */,
 				FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */,
 				FC4FF96B2BF6FDEC00F711BF /* AuthViewModel.swift in Sources */,
 				FC4FF96E2BF70F0A00F711BF /* DatabaseManager.swift in Sources */,
+				FCE4241E2BFC711400A43600 /* NewConversationVC.swift in Sources */,
 				FC4638322B212BBE00ECE1F2 /* SceneDelegate.swift in Sources */,
 				FC4638522B228B8A00ECE1F2 /* NetworkManager.swift in Sources */,
 				FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */,
@@ -487,7 +539,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -544,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -634,6 +686,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/replicate/replicate-swift?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCE424152BFC606900A43600 /* Replicate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */;
+			productName = Replicate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC4638242B212BBE00ECE1F2 /* Project object */;
 }

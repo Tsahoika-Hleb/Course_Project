@@ -1,7 +1,7 @@
 struct ChatUser {
     let username: String
     let email: String
-    // TODO: Add picture
+    // TODO: Add picture & UUID
     
     var safeEmail: String {
         var safeEmail = email

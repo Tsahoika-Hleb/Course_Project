@@ -48,4 +48,24 @@ extension DatabaseManager {
             }
         }
     }
+    
+    func fetchAllUsers(complition: @escaping (([ChatUser]) -> Void)) {
+        var users = [ChatUser]()
+        
+        database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let userCollection = snapshot.value as? [[String:String]] {
+                for user in userCollection {
+                    if let name = user["username"], let email = user["email"] {
+                        users.append(ChatUser(
+                            username: name,
+                            email: email)
+                        )
+                    }
+                }
+                complition(users)
+            } else {
+                fatalError()
+            }
+        }
+    }
 }

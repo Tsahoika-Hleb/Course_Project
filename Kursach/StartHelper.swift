@@ -25,11 +25,11 @@ final class StartHelper {
         } else {
             coordinator.showAllChatsScreen()
             // TODO: Delete this
-            do {
-                try FirebaseAuth.Auth.auth().signOut()
-            } catch {
-                print(error)
-            }
+//            do {
+//                try FirebaseAuth.Auth.auth().signOut()
+//            } catch {
+//                print(error)
+//            }
         }
     }
 }

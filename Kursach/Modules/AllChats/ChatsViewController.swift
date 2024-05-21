@@ -18,11 +18,34 @@ final class ChatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        loadChats()
+        setup()
     }
     
     // MARK: - Private methods
+    private func setup() {
+        setupNavBar()
+        setupTableView()
+        viewModel?.fetchAllData()
+        viewModel?.bindChats = {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func setupNavBar() {
+        navigationItem.title = ChatListStrings.chatListTitle.localizedString
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(didTapSearchButton)
+        )
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "person.crop.circle.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapProfileButton)
+        )
+    }
+    
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,9 +62,19 @@ final class ChatsViewController: UIViewController {
         tableView.rowHeight = 75
     }
     
-    private func loadChats() {
-        viewModel?.loadChats()
-        tableView.reloadData()
+//    private func loadChats() {
+//        viewModel?.loadChats()
+//        tableView.reloadData()
+//    }
+    
+    @objc private func didTapSearchButton() {
+        guard let viewModel else { return }
+        let vc = NewConversationVC(viewModel: viewModel)
+        present(vc, animated: true)
+    }
+    
+    @objc private func didTapProfileButton() {
+        // TODO: Show profile settings screen
     }
 }
 

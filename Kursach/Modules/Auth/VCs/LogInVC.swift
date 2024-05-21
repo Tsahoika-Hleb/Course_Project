@@ -141,6 +141,7 @@ final class LoginViewController: UIViewController {
             case .success(let user):
                 self.coordinator?.showAllChatsScreen()
             case .failure(let error):
+                print(error)
                 UIAlertController.showError(message: error.localizedDescription, in: self)
             }
         }

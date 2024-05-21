@@ -44,8 +44,10 @@ enum APIModel: APIEndpoint, Equatable {
         switch self {
         case .analyzeComment:
             return [
-                URLQueryItem(name: "key",
-                             value: "AIzaSyBoC5t3tYIZ5_mOMYy9B50uJQHzvl41thY")
+                URLQueryItem(
+                    name: "key",
+                    value: "AIzaSyBoC5t3tYIZ5_mOMYy9B50uJQHzvl41thY"
+                )
             ]
         }
     }
