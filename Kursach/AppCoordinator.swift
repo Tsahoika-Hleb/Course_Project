@@ -43,8 +43,18 @@ final class AppCoordinator {
     }
     
     func showAllChatsScreen() {
-        let allChatsVC = ChatsViewController(viewModel: allChatsViewModel)
+        let allChatsVC = ChatsViewController(viewModel: allChatsViewModel, coordinator: self)
         navigationController?.setViewControllers([allChatsVC], animated: false)
-
+    }
+    
+    func showChatScreen(with user: ChatUser) {
+        let vm = ChatViewModel()
+        let vc = ChatViewController(viewModel: vm)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showProfileSettingsScreen() {
+        let vc = ProfileSettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

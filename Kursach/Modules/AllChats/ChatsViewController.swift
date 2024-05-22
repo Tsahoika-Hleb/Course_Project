@@ -5,10 +5,12 @@ final class ChatsViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     private let viewModel: ChatsViewModel?
+    private let coordinator: AppCoordinator?
 
     // MARK: - Lyfe cycle
-    init(viewModel: ChatsViewModel) {
+    init(viewModel: ChatsViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,6 +46,18 @@ final class ChatsViewController: UIViewController {
             target: self,
             action: #selector(didTapProfileButton)
         )
+        
+        let customAppearance = UINavigationBarAppearance()
+        customAppearance.configureWithOpaqueBackground()
+        customAppearance.backgroundColor = UIColor.chatBarsColor
+
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.standardAppearance = customAppearance
+            navigationBar.scrollEdgeAppearance = customAppearance
+
+            navigationBar.compactAppearance = customAppearance
+            navigationBar.compactScrollEdgeAppearance = customAppearance
+        }
     }
     
     private func setupTableView() {
@@ -75,6 +89,7 @@ final class ChatsViewController: UIViewController {
     
     @objc private func didTapProfileButton() {
         // TODO: Show profile settings screen
+        coordinator?.showProfileSettingsScreen()
     }
 }
 
@@ -88,6 +103,7 @@ extension ChatsViewController: UITableViewDelegate {
         let chat = viewModel.sortedChats[indexPath.row]
         // Откройте экран чата
         print("Selected chat with \(chat.name)")
+        coordinator?.showChatScreen(with: .init(username: "", email: ""))
     }
 }
 

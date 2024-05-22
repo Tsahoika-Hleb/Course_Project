@@ -3,7 +3,7 @@ import UIKit
 final class UserTableViewCell: UITableViewCell {
     
     // Создаем картинку для аватарки
-    let avatarImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -14,7 +14,7 @@ final class UserTableViewCell: UITableViewCell {
     }()
     
     // Создаем метку для имени пользователя
-    let userNameLabel: UILabel = {
+    private let userNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16)
