@@ -14,22 +14,18 @@ final class StartHelper {
         
         let authViewModel = AuthViewModel()
         let allChatsViewModel = ChatsViewModel()
+        let profileSettingsViewModel = ProfileSettingsVM()
         let coordinator = AppCoordinator(
             navigationController: navigationController,
             authViewModel: authViewModel,
-            allChatsViewModel: allChatsViewModel
+            allChatsViewModel: allChatsViewModel,
+            profileSettingsViewModel: profileSettingsViewModel
         )
         
         if FirebaseAuth.Auth.auth().currentUser == nil {
             coordinator.showLogInScreen()
         } else {
             coordinator.showAllChatsScreen()
-            // TODO: Delete this
-//            do {
-//                try FirebaseAuth.Auth.auth().signOut()
-//            } catch {
-//                print(error)
-//            }
         }
     }
 }

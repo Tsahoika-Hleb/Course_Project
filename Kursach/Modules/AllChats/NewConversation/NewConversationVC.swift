@@ -3,7 +3,8 @@ import SnapKit
 
 class NewConversationVC: UIViewController {
 
-    private var viewModel: ChatsViewModel
+    private let viewModel: ChatsViewModel
+    private let coordinator: AppCoordinator
     
     // MARK: - UI Properties
     private let searchBar: UISearchBar = {
@@ -30,8 +31,9 @@ class NewConversationVC: UIViewController {
         viewModel.searchedUsers = []
     }
     
-    init(viewModel: ChatsViewModel) {
+    init(viewModel: ChatsViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -88,6 +90,10 @@ extension NewConversationVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let choosedUser = viewModel.searchedUsers[indexPath.row]
+        self.dismiss(animated: false) {
+            self.coordinator.showChatScreen(with: choosedUser, animated: false)
+        }
     }
 }
 

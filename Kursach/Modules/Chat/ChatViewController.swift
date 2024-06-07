@@ -84,7 +84,7 @@ final class ChatViewController: UIViewController {
         
         // TODO: Bind with vm
         
-        navigationItem.title = "Имя Человека"
+        navigationItem.title = "Test1"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),
             style: .plain,
@@ -140,17 +140,20 @@ final class ChatViewController: UIViewController {
 
     
     @objc private func sendMessage() {
-        print("Сообщение отправлено: \(inputTextField.text ?? "")")
+        guard let text = inputTextField.text, !text.isEmpty else {
+            return
+        }
         inputTextField.text = ""
         
-        viewModel.messages.insert(
-            Message(
-                text: "Привет! Как дела?",
-                sendBy: .init(username: "test2", email: "test2"),
-                timestamp: Date().addingTimeInterval(450)
-            ),
-            at: 0 
-        )
+//        viewModel.messages.insert(
+//            Message(
+//                text: "Привет! Как дела?",
+//                sendBy: .init(username: "test2", email: "test2"),
+//                timestamp: Date().addingTimeInterval(450)
+//            ),
+//            at: 0 
+//        )
+        viewModel.sendMessage(text)
         tableView.reloadData()
     }
     

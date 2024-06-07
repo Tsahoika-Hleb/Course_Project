@@ -35,11 +35,11 @@
 		FC4FF97B2BF7B9AF00F711BF /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97A2BF7B9AF00F711BF /* ChatTableViewCell.swift */; };
 		FC4FF97D2BF816A200F711BF /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */; };
 		FC4FF97F2BF81DBB00F711BF /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */; };
+		FC6787F42C1366DD00B732C9 /* ProfileSettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6787F32C1366DD00B732C9 /* ProfileSettingsVM.swift */; };
 		FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */; };
 		FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */; };
 		FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AppCoordinator.swift */; };
 		FCE424132BFC55CF00A43600 /* PerspectiveAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */; };
-		FCE424162BFC606900A43600 /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = FCE424152BFC606900A43600 /* Replicate */; };
 		FCE424192BFC625800A43600 /* ReplicateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424182BFC625800A43600 /* ReplicateManager.swift */; };
 		FCE4241E2BFC711400A43600 /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4241D2BFC711400A43600 /* NewConversationVC.swift */; };
 		FCE424202BFC729800A43600 /* ChatListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4241F2BFC729800A43600 /* ChatListStrings.swift */; };
@@ -85,6 +85,7 @@
 		FC4FF97A2BF7B9AF00F711BF /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		FC4FF97C2BF816A200F711BF /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		FC4FF97E2BF81DBB00F711BF /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		FC6787F32C1366DD00B732C9 /* ProfileSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsVM.swift; sourceTree = "<group>"; };
 		FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		FCBD00172BF6F09400F26795 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCE424162BFC606900A43600 /* Replicate in Frameworks */,
 				96440BBB2007CE23D769D755 /* Pods_Kursach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				FCE4242F2BFE8FBF00A43600 /* ProfileSettingsVC.swift */,
+				FC6787F32C1366DD00B732C9 /* ProfileSettingsVM.swift */,
 			);
 			path = ProfileSettings;
 			sourceTree = "<group>";
@@ -369,7 +370,6 @@
 			);
 			name = Kursach;
 			packageProductDependencies = (
-				FCE424152BFC606900A43600 /* Replicate */,
 			);
 			productName = Kursach;
 			productReference = FC46382C2B212BBE00ECE1F2 /* Kursach.app */;
@@ -401,7 +401,6 @@
 			);
 			mainGroup = FC4638232B212BBE00ECE1F2;
 			packageReferences = (
-				FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */,
 			);
 			productRefGroup = FC46382D2B212BBE00ECE1F2 /* Products */;
 			projectDirPath = "";
@@ -474,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6787F42C1366DD00B732C9 /* ProfileSettingsVM.swift in Sources */,
 				FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */,
 				FCE424192BFC625800A43600 /* ReplicateManager.swift in Sources */,
 				FC4FF9742BF7A45700F711BF /* AuthManager.swift in Sources */,
@@ -726,25 +726,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/replicate/replicate-swift?tab=readme-ov-file";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.21.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FCE424152BFC606900A43600 /* Replicate */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCE424142BFC606900A43600 /* XCRemoteSwiftPackageReference "replicate-swift" */;
-			productName = Replicate;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC4638242B212BBE00ECE1F2 /* Project object */;
 }

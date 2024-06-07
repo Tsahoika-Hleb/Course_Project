@@ -16,6 +16,7 @@ final class ChatsViewModel {
             chat1.timestamp > chat2.timestamp
         }
     }
+    
     var searchedUsers: [ChatUser] = [] {
         didSet {
             bindSearchedUser()

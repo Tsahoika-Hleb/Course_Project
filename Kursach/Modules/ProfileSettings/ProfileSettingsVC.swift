@@ -16,6 +16,11 @@ private enum Constants {
 
 class ProfileSettingsViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private let viewModel: ProfileSettingsVM
+    private let coordinator: AppCoordinator
+    
     // MARK: - UI Elements
     
     private lazy var profileImageView: UIImageView = {
@@ -94,7 +99,16 @@ class ProfileSettingsViewController: UIViewController {
         setupNavigationBar()
         setupViews()
     }
+
+    init(viewModel: ProfileSettingsVM, coordinator: AppCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Setup
     
@@ -204,6 +218,27 @@ class ProfileSettingsViewController: UIViewController {
     }
     
     @objc private func quitButtonPressed() {
-        // Handle quit button action
+        let alertController = UIAlertController(
+            title: "Sign Out",
+            message: "Are you sure you want to sign out",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "Yes", style: .default) { _ in
+            self.viewModel.signOut { result in
+                switch result {
+                case .success:
+                    self.coordinator.signout()
+                case let .failure(error):
+                    UIAlertController.showError(message: error.localizedDescription, in: self)
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true)
     }
 }

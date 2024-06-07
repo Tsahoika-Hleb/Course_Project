@@ -27,7 +27,6 @@ final class MessageCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: Constants.timeFontSize)
-        //        label.text = "00:00"
         label.textColor = .gray
         return label
     }()
@@ -83,9 +82,7 @@ final class MessageCell: UITableViewCell {
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = dateFormatter.string(from: message.timestamp)
         
-        let currentUser = ChatUser.init(username: "test2", email: "test2")
-        
-        if message.sendBy.email == currentUser.email {
+        if message.senderEmail == CurrentUser.safeEmail {
             bubbleBackgroundView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
             messageLabel.textColor = .black
             bubbleBackgroundView.snp.remakeConstraints { make in

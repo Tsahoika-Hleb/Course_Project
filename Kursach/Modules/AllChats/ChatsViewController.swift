@@ -82,8 +82,11 @@ final class ChatsViewController: UIViewController {
 //    }
     
     @objc private func didTapSearchButton() {
-        guard let viewModel else { return }
-        let vc = NewConversationVC(viewModel: viewModel)
+        guard let viewModel, let coordinator else { return }
+        let vc = NewConversationVC(
+            viewModel: viewModel,
+            coordinator: coordinator
+        )
         present(vc, animated: true)
     }
     
@@ -103,7 +106,7 @@ extension ChatsViewController: UITableViewDelegate {
         let chat = viewModel.sortedChats[indexPath.row]
         // Откройте экран чата
         print("Selected chat with \(chat.name)")
-        coordinator?.showChatScreen(with: .init(username: "", email: ""))
+        coordinator?.showChatScreen(with: .init(username: "", email: ""), animated: true)
     }
 }
 

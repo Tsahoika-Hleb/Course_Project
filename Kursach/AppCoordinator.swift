@@ -5,15 +5,18 @@ final class AppCoordinator {
     weak var navigationController: UINavigationController?
     private let authViewModel: AuthViewModel
     private let allChatsViewModel: ChatsViewModel
+    private let profileSettingsViewModel: ProfileSettingsVM
 
     init(
         navigationController: UINavigationController,
         authViewModel: AuthViewModel,
-        allChatsViewModel: ChatsViewModel
+        allChatsViewModel: ChatsViewModel,
+        profileSettingsViewModel: ProfileSettingsVM
     ) {
         self.navigationController = navigationController
         self.authViewModel = authViewModel
         self.allChatsViewModel = allChatsViewModel
+        self.profileSettingsViewModel = profileSettingsViewModel
     }
     
     func showLogInScreen() {
@@ -47,14 +50,32 @@ final class AppCoordinator {
         navigationController?.setViewControllers([allChatsVC], animated: false)
     }
     
-    func showChatScreen(with user: ChatUser) {
-        let vm = ChatViewModel()
+    func showChatScreen(with user: ChatUser, animated: Bool) {
+        let currentUser = CurrentUser.safeEmail
+        let vm = ChatViewModel(with: [user.safeEmail, currentUser])
+        showChatScreen(vm: vm, animated: animated)
+    }
+    
+    func showСhatScreen(chatId: String, animated: Bool) {
+        let vm = ChatViewModel(id: chatId)
+        showChatScreen(vm: vm, animated: animated)
+    }
+    
+    private func showChatScreen(vm: ChatViewModel, animated: Bool) {
         let vc = ChatViewController(viewModel: vm)
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: animated)
     }
     
     func showProfileSettingsScreen() {
-        let vc = ProfileSettingsViewController()
+        let vc = ProfileSettingsViewController(
+            viewModel: profileSettingsViewModel,
+            coordinator: self
+        )
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func signout() {
+        navigationController?.viewControllers = []
+        showLogInScreen()
     }
 }
