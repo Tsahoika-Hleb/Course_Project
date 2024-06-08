@@ -78,13 +78,18 @@ final class ChatViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.listenMessages()
+    }
 
     // MARK: Private methods
     private func setup() {
+        viewModel.updateMessages = {
+            self.tableView.reloadData()
+        }
         
-        // TODO: Bind with vm
-        
-        navigationItem.title = "Test1"
+        navigationItem.title = viewModel.chatName
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),
             style: .plain,
@@ -145,14 +150,6 @@ final class ChatViewController: UIViewController {
         }
         inputTextField.text = ""
         
-//        viewModel.messages.insert(
-//            Message(
-//                text: "Привет! Как дела?",
-//                sendBy: .init(username: "test2", email: "test2"),
-//                timestamp: Date().addingTimeInterval(450)
-//            ),
-//            at: 0 
-//        )
         viewModel.sendMessage(text)
         tableView.reloadData()
     }

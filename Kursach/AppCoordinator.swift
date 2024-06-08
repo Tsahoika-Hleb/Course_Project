@@ -3,9 +3,9 @@ import UIKit
 final class AppCoordinator {
     
     weak var navigationController: UINavigationController?
-    private let authViewModel: AuthViewModel
-    private let allChatsViewModel: ChatsViewModel
-    private let profileSettingsViewModel: ProfileSettingsVM
+    private var authViewModel: AuthViewModel
+    private var allChatsViewModel: ChatsViewModel
+    private var profileSettingsViewModel: ProfileSettingsVM
 
     init(
         navigationController: UINavigationController,
@@ -52,12 +52,12 @@ final class AppCoordinator {
     
     func showChatScreen(with user: ChatUser, animated: Bool) {
         let currentUser = CurrentUser.safeEmail
-        let vm = ChatViewModel(with: [user.safeEmail, currentUser])
+        let vm = ChatViewModel(chatName: user.username, with: [user.safeEmail, currentUser])
         showChatScreen(vm: vm, animated: animated)
     }
     
-    func showСhatScreen(chatId: String, animated: Bool) {
-        let vm = ChatViewModel(id: chatId)
+    func showСhatScreen(name: String, chatId: String, animated: Bool) {
+        let vm = ChatViewModel(chatName: name, id: chatId)
         showChatScreen(vm: vm, animated: animated)
     }
     
@@ -76,6 +76,9 @@ final class AppCoordinator {
     
     func signout() {
         navigationController?.viewControllers = []
+        authViewModel = AuthViewModel()
+        allChatsViewModel = ChatsViewModel()
+        profileSettingsViewModel = ProfileSettingsVM()
         showLogInScreen()
     }
 }

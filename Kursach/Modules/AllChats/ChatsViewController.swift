@@ -21,6 +21,7 @@ final class ChatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        viewModel?.fetchAllData()
     }
     
     // MARK: - Private methods
@@ -106,7 +107,7 @@ extension ChatsViewController: UITableViewDelegate {
         let chat = viewModel.sortedChats[indexPath.row]
         // Откройте экран чата
         print("Selected chat with \(chat.name)")
-        coordinator?.showChatScreen(with: .init(username: "", email: ""), animated: true)
+        coordinator?.showСhatScreen(name: chat.name, chatId: chat.id, animated: true)
     }
 }
 

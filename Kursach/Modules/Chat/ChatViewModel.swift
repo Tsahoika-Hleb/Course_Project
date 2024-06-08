@@ -3,7 +3,15 @@ import Foundation
 final class ChatViewModel {
     
     // MARK: - Properties
-    var messages: [Message] = []
+    var chatName: String
+    
+    var messages: [Message] = [] {
+        didSet {
+            updateMessages()
+        }
+    }
+    
+    var updateMessages : (() -> ()) = {}
     
     // MARK: - Private properties
     private let databaseManager = DatabaseManager.shared
@@ -11,22 +19,48 @@ final class ChatViewModel {
     private var chatUsersEmail: [String] = []
     
     // MARK: - Initialization
-    init(id: String) {
+    init(chatName: String, id: String) {
+        self.chatName = chatName
         self.id = id
-        // TODO: Fetch chat users
+        fetchUsers()
     }
     
-    init(with chatUsersEmail: [String]) {
+    init(chatName: String, with chatUsersEmail: [String]) {
+        self.chatName = chatName
         self.chatUsersEmail = chatUsersEmail
     }
     
     // MARK: - Private methods
-    private func loadMessages() {
+    private func fetchUsers() {
+        guard let id else { return }
+        databaseManager.fetchUsers(in: id) { result in
+            switch result {
+            case let .success(users):
+                self .chatUsersEmail = users
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    private func sendMessage(message: Message, id: String, completion: @escaping (Bool) -> Void) {
+        messages.insert(message, at: 0)
+        
+        databaseManager.sendMessage(
+            message,
+            chatId: id,
+            userEmails: chatUsersEmail,
+            completion: completion
+        )
+    }
+    
+    // MARK: - Iternal properties
+    func listenMessages() {
         guard let id else { return }
         databaseManager.getAllMessages(for: id) { result in
             switch result {
             case let .success(messages):
-                self.messages = messages
+                self.messages = messages.sorted { $0.timestamp > $1.timestamp }
             case let .failure(error):
                 print(error.localizedDescription)
                 fatalError()
@@ -34,21 +68,6 @@ final class ChatViewModel {
         }
     }
     
-    private func sendMessage(message: Message, id: String) {
-        messages.insert(message, at: 0)
-        
-        databaseManager.sendMessage(
-            message,
-            chatId: id,
-            userEmails: chatUsersEmail
-        ) { wasSent in
-            if !wasSent {
-                print("Some error")
-            }
-        }
-    }
-    
-    // MARK: - Iternal properties
     func sendMessage(_ text: String) {
         let message = Message(
             text: text,
@@ -58,18 +77,19 @@ final class ChatViewModel {
         )
         
         if let id {
-            sendMessage(message: message, id: id)
+            sendMessage(message: message, id: id, completion: { success in
+                if !success {
+                    fatalError()
+                }
+            })
         } else {
             let newChatId = UUID().uuidString
             id = newChatId
-            sendMessage(message: message, id: newChatId)
+            sendMessage(message: message, id: newChatId, completion: { success in
+                if success {
+                    self.listenMessages()
+                }
+            })
         }
     }
 }
-
-
-//    var messages = Array([
-//        Message(text: "Привет!", sendBy: .init(username: "test1", email: "test1"), timestamp: Date(), isRead: true),
-//        Message(text: "Привет! Как дела?", sendBy: .init(username: "test2", email: "test2"), timestamp: Date().addingTimeInterval(100), isRead: true),
-//        Message(text: "Все отлично, а у тебя? Куча куча текста здесь. \nПроверка на объемный текст", sendBy: .init(username: "test1", email: "test1"), timestamp: Date().addingTimeInterval(400), isRead: true)
-//    ].reversed())

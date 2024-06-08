@@ -18,11 +18,16 @@ struct Message {
 extension String {
     
     func dateFromTimestampString() -> Date? {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .long
-        formatter.locale = .current
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
+        dateFormatter.dateFormat = "d MMMM yyyy г., HH:mm:ss 'GMT'Z"
         
-        return formatter.date(from: self)
+        return dateFormatter.date(from: self)
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .long
+//        formatter.locale = .current
+//        
+//        return formatter.date(from: self)
     }
 }

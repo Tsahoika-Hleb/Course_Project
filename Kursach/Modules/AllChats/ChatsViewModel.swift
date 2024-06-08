@@ -24,7 +24,6 @@ final class ChatsViewModel {
     }
     
     func fetchAllData() {
-        // TODO: Set all chats
         loadChats()
         
         databaseManager.fetchAllUsers { users in
@@ -36,12 +35,15 @@ final class ChatsViewModel {
     var bindSearchedUser : (() -> ()) = {}
     
     private func loadChats() {
-        // Загружаете чаты из источника данных (Firebase, API, локальные данные и т.д.)
-        // Пример заполненных данных:
-        allChats = [
-            Chat(id: "1", name: "John Doe", lastMessage: "Hey, how are you?", timestamp: Date(), unreadMessagesCount: 2),
-            Chat(id: "2", name: "Jane Smith", lastMessage: "Let's catch up later", timestamp: Date(), unreadMessagesCount: 0)
-        ]
+        databaseManager.getAllChats { result in
+            switch result {
+            case let .success(chats):
+                self.allChats = chats
+            case let .failure(error):
+                self.allChats = []
+                print(error)
+            }
+        }
     }
     
     func findUsers(with namePrefix: String) {

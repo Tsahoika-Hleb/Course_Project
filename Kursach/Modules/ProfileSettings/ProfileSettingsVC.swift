@@ -56,19 +56,19 @@ class ProfileSettingsViewController: UIViewController {
         return textField
     }()
     
-    private lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Password"
-        label.textColor = .black
-        return label
-    }()
+//    private lazy var passwordLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Password"
+//        label.textColor = .black
+//        return label
+//    }()
     
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.borderStyle = .roundedRect
-        textField.isSecureTextEntry = true
-        return textField
-    }()
+//    private lazy var passwordTextField: UITextField = {
+//        let textField = UITextField()
+//        textField.borderStyle = .roundedRect
+//        textField.isSecureTextEntry = true
+//        return textField
+//    }()
     
     private lazy var childModeLabel: UILabel = {
         let label = UILabel()
@@ -98,6 +98,7 @@ class ProfileSettingsViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupViews()
+        setupFields()
     }
 
     init(viewModel: ProfileSettingsVM, coordinator: AppCoordinator) {
@@ -111,6 +112,17 @@ class ProfileSettingsViewController: UIViewController {
     }
     
     // MARK: - Setup
+    
+    private func setupFields() {
+        viewModel.setCurrentUser()
+        
+        viewModel.updateFields = { [weak self] in
+            guard let self else { return }
+            usernameTextField.text = viewModel.currentUser?.username
+        }
+        
+        // TODO: Child mode
+    }
     
     private func setupNavigationBar() {
         navigationItem.title = "Profile"
@@ -139,8 +151,8 @@ class ProfileSettingsViewController: UIViewController {
         view.addSubview(changePhotoButton)
         view.addSubview(usernameLabel)
         view.addSubview(usernameTextField)
-        view.addSubview(passwordLabel)
-        view.addSubview(passwordTextField)
+//        view.addSubview(passwordLabel)
+//        view.addSubview(passwordTextField)
         view.addSubview(childModeLabel)
         view.addSubview(childModeSwitch)
         view.addSubview(saveButton)
@@ -172,19 +184,19 @@ class ProfileSettingsViewController: UIViewController {
             make.trailing.equalTo(view).offset(-Constants.sideMargin)
         }
         
-        passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(usernameTextField.snp.bottom).offset(Constants.bigMargin)
-            make.leading.equalTo(view).offset(Constants.sideMargin)
-        }
-        
-        passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordLabel.snp.bottom).offset(Constants.smallMargin)
-            make.leading.equalTo(view).offset(Constants.sideMargin)
-            make.trailing.equalTo(view).offset(-Constants.sideMargin)
-        }
+//        passwordLabel.snp.makeConstraints { make in
+//            make.top.equalTo(usernameTextField.snp.bottom).offset(Constants.bigMargin)
+//            make.leading.equalTo(view).offset(Constants.sideMargin)
+//        }
+//        
+//        passwordTextField.snp.makeConstraints { make in
+//            make.top.equalTo(passwordLabel.snp.bottom).offset(Constants.smallMargin)
+//            make.leading.equalTo(view).offset(Constants.sideMargin)
+//            make.trailing.equalTo(view).offset(-Constants.sideMargin)
+//        }
         
         childModeLabel.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(Constants.bigMargin * 2)
+            make.top.equalTo(usernameTextField.snp.bottom).offset(Constants.bigMargin * 2)
             make.leading.equalTo(view).offset(Constants.sideMargin)
         }
         
