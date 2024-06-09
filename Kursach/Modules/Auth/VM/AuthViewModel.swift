@@ -15,7 +15,7 @@ class AuthViewModel {
         password: String,
         completion: @escaping (Result<User, Error>) -> Void
     ) {
-        let chatUser = ChatUser(username: username, email: email)
+        let chatUser = ChatUser(username: username, email: email, profileImage: nil)
         databaseManager.userExists(with: chatUser) { isExist in
             if isExist {
                 completion(.failure(AuthErrors.userAlreadyExists))

@@ -113,5 +113,8 @@ final class ChatTableViewCell: UITableViewCell {
         )
         unreadMessagesCountLabel.text = chat.unreadMessagesCount > 0 ? "\(chat.unreadMessagesCount)" : nil
         unreadMessagesCountLabel.isHidden = chat.unreadMessagesCount == 0
+        if let image = chat.image {
+            self.profileImageView.image = UIImage(data: image)
+        }
     }
 }

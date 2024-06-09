@@ -4,6 +4,7 @@ final class ChatViewModel {
     
     // MARK: - Properties
     var chatName: String
+    var chatImage: Data?
     
     var messages: [Message] = [] {
         didSet {
@@ -19,14 +20,16 @@ final class ChatViewModel {
     private var chatUsersEmail: [String] = []
     
     // MARK: - Initialization
-    init(chatName: String, id: String) {
+    init(chatName: String, chatImage: Data?, id: String) {
         self.chatName = chatName
+        self.chatImage = chatImage
         self.id = id
         fetchUsers()
     }
     
-    init(chatName: String, with chatUsersEmail: [String]) {
+    init(chatName: String, chatImage: Data?, with chatUsersEmail: [String]) {
         self.chatName = chatName
+        self.chatImage = chatImage
         self.chatUsersEmail = chatUsersEmail
     }
     

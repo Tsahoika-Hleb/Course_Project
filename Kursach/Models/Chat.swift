@@ -6,4 +6,5 @@ struct Chat {
     let lastMessage: String
     let timestamp: Date
     let unreadMessagesCount: Int
+    let image: Data?
 }

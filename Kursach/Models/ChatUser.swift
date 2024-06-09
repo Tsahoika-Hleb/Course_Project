@@ -13,6 +13,8 @@ public class CurrentUser {
 struct ChatUser {
     let username: String
     let email: String
+//    let pictureUrl: String?
+    let profileImage: Data?
     // TODO: Add picture & UUID
     
     var safeEmail: String {

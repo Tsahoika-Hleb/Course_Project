@@ -5,6 +5,7 @@ final class ProfileSettingsVM {
     // MARK: - Private properties
     
     private let databaseManager = DatabaseManager.shared
+    private let storageManager = StorageManager.shared
     private let authManager = AuthManager.shared
     
     // MARK: - Iternal properties
@@ -19,11 +20,39 @@ final class ProfileSettingsVM {
     
     // MARK: - Iternal methods
     
-    func setCurrentUser() {
-        databaseManager.fetchUsername(userMail: CurrentUser.safeEmail) { result in
+//    func fetchImage(imageUrl: String, completion: @escaping (Data) -> Void) {
+//        storageManager.fetchImage(from: imageUrl) { result in
+//            switch result {
+//            case let .success(imageData):
+//                completion(imageData)
+//            case .failure(let failure):
+//                print(failure)
+//            }
+//        }
+//    }
+    
+    func uploadImage(imageData: Data) {
+        storageManager.uploadProfilePicture(data: imageData) { result in
             switch result {
-            case let .success(username):
-                self.currentUser = ChatUser(username: username, email: CurrentUser.email ?? "")
+            case let .success(pictureUrl):
+                self.databaseManager.setUserImage(
+                    pictureUrl: pictureUrl,
+                    userMail: CurrentUser.safeEmail) { uploaded in
+                        if !uploaded {
+                            print("Picture didn't upload")
+                        }
+                    }
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    func setCurrentUser() {
+        databaseManager.fetchUserInfo(userMail: CurrentUser.safeEmail) { result in
+            switch result {
+            case let .success(user):
+                self.currentUser = user
             case let .failure(error):
                 print(error)
                 fatalError()

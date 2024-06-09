@@ -52,12 +52,12 @@ final class AppCoordinator {
     
     func showChatScreen(with user: ChatUser, animated: Bool) {
         let currentUser = CurrentUser.safeEmail
-        let vm = ChatViewModel(chatName: user.username, with: [user.safeEmail, currentUser])
+        let vm = ChatViewModel(chatName: user.username, chatImage: user.profileImage, with: [user.safeEmail, currentUser])
         showChatScreen(vm: vm, animated: animated)
     }
     
-    func showСhatScreen(name: String, chatId: String, animated: Bool) {
-        let vm = ChatViewModel(chatName: name, id: chatId)
+    func showСhatScreen(name: String, image: Data?, chatId: String, animated: Bool) {
+        let vm = ChatViewModel(chatName: name, chatImage: image, id: chatId)
         showChatScreen(vm: vm, animated: animated)
     }
     

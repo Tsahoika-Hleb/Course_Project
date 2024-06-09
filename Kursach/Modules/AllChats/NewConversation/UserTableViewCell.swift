@@ -2,6 +2,8 @@ import UIKit
 
 final class UserTableViewCell: UITableViewCell {
     
+    private let storageManager = StorageManager.shared
+    
     // Создаем картинку для аватарки
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
@@ -49,7 +51,19 @@ final class UserTableViewCell: UITableViewCell {
     }
     
     func configure(with user: ChatUser) {
-//        self.avatarImageView.image = user.image
         self.userNameLabel.text = user.username
+        if let image = user.profileImage {
+            self.avatarImageView.image = UIImage(data: image)
+        }
+//        if let pictureUrl = user.pictureUrl {
+//            storageManager.fetchImage(from: pictureUrl) { result in
+//                switch result {
+//                case let .success(imageData):
+//                    self.avatarImageView.image = UIImage(data: imageData)
+//                case .failure(let failure):
+//                    print(failure)
+//                }
+//            }
+//        }
     }
 }

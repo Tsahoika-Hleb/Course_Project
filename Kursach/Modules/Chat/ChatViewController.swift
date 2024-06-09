@@ -31,12 +31,14 @@ final class ChatViewController: UIViewController {
     
     private var messageInputContainerView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .chatBarsColor
         return view
     }()
     
     private var inputTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Введите сообщение..."
         textField.borderStyle = .roundedRect
         return textField
@@ -44,6 +46,7 @@ final class ChatViewController: UIViewController {
     
     private lazy var sendButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
         button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         return button
@@ -51,18 +54,24 @@ final class ChatViewController: UIViewController {
     
     private lazy var attachButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(systemName: "paperclip")
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(attachImage), for: .touchUpInside)
         return button
     }()
     
-    private lazy var interlocutorAvatar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "person.circle")
-        return imageView
-    }()
+//    private lazy var interlocutorAvatar: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.image = UIImage(systemName: "person.circle")
+//        imageView.clipsToBounds = true
+//        imageView.layer.masksToBounds = true
+//        imageView.layer.cornerRadius = imageView.frame.width / 2
+//        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 40)
+//        return imageView
+//    }()
     
     // MARK: LyfeCycle
     override func viewDidLoad() {
@@ -82,7 +91,7 @@ final class ChatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.listenMessages()
     }
-
+    
     // MARK: Private methods
     private func setup() {
         viewModel.updateMessages = {
@@ -96,7 +105,48 @@ final class ChatViewController: UIViewController {
             target: self,
             action: #selector(goBack)
         )
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: interlocutorAvatar)
+        //        if let image = viewModel.chatImage {
+        //            interlocutorAvatar.image = UIImage(data: image)
+        //        }
+        //        let containerView = UIView(frame: interlocutorAvatar.bounds)
+        //        containerView.addSubview(interlocutorAvatar)
+        //
+        //        interlocutorAvatar.translatesAutoresizingMaskIntoConstraints = false
+        //        NSLayoutConstraint.activate([
+        //            interlocutorAvatar.widthAnchor.constraint(equalToConstant: 50),
+        //            interlocutorAvatar.heightAnchor.constraint(equalToConstant: 40),
+        //            interlocutorAvatar.centerXAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
+        //            interlocutorAvatar.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+        //        ])
+        let image: UIImage?
+        if let imageData = viewModel.chatImage {
+            image = UIImage(data: imageData)
+        } else {
+            image = UIImage(systemName: "person.circle")
+        }
+        
+        // Создаем UIImageView и настраиваем его
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20 // половина ширины/высоты, чтобы сделать его круглым
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        
+        // Создаем UIView для обертки UIImageView
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40)) // немного увеличиваем ширину контейнера
+        containerView.addSubview(imageView)
+        
+        // Устанавливаем размеры и центрирование UIImageView внутри UIView с отступом справа
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 12)
+        ])
+        
+        // Создаем UIBarButtonItem с кастомным представлением
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: containerView)
 
         view.backgroundColor = .chatBarsColor
         

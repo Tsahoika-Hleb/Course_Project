@@ -21,7 +21,6 @@ final class ChatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        viewModel?.fetchAllData()
     }
     
     // MARK: - Private methods
@@ -30,7 +29,9 @@ final class ChatsViewController: UIViewController {
         setupTableView()
         viewModel?.fetchAllData()
         viewModel?.bindChats = {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -41,8 +42,9 @@ final class ChatsViewController: UIViewController {
             target: self,
             action: #selector(didTapSearchButton)
         )
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "person.crop.circle.fill"),
+            image: UIImage(systemName: "gearshape.fill"),
             style: .plain,
             target: self,
             action: #selector(didTapProfileButton)
@@ -107,7 +109,7 @@ extension ChatsViewController: UITableViewDelegate {
         let chat = viewModel.sortedChats[indexPath.row]
         // Откройте экран чата
         print("Selected chat with \(chat.name)")
-        coordinator?.showСhatScreen(name: chat.name, chatId: chat.id, animated: true)
+        coordinator?.showСhatScreen(name: chat.name, image: chat.image, chatId: chat.id,  animated: true)
     }
 }
 

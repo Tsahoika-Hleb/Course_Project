@@ -74,12 +74,19 @@ extension DatabaseManager {
         database.child("users").observeSingleEvent(of: .value) { snapshot in
             if let userCollection = snapshot.value as? [[String:String]] {
                 for user in userCollection {
+                    var username = ""
+                    var useremail = ""
+                    var profilePicture: Data?
                     if let name = user["username"], let email = user["email"] {
-                        users.append(ChatUser(
-                            username: name,
-                            email: email)
-                        )
+                        username = name
+                        useremail = email
                     }
+                    
+                    users.append(ChatUser(
+                        username: username,
+                        email: useremail,
+                        profileImage: profilePicture)
+                    )
                 }
                 complition(users)
             } else {
@@ -116,7 +123,8 @@ extension DatabaseManager {
                         name: name,
                         lastMessage: text,
                         timestamp: timestamp.dateFromTimestampString() ?? Date(),
-                        unreadMessagesCount: isRead ? 1 : 0
+                        unreadMessagesCount: isRead ? 1 : 0,
+                        image: nil
                     )
                     chats.append(chat)
                 } else {
@@ -149,6 +157,66 @@ extension DatabaseManager {
                 return
             }
             completion(.success(username))
+        }
+    }
+    
+    func fetchUserInfo(userMail: String, completion: @escaping (Result<ChatUser, Error>) -> Void) {
+        database.child(userMail).observe(.value) { snapshot in
+            guard let userData = snapshot.value as? [String:Any] else {
+                fatalError()
+            }
+            
+            var username = ""
+            var profilePicture: Data?
+            if let name = userData["username"] as? String {
+                username = name
+            }
+            if let url = userData["profile_picture"] as? String {
+                StorageManager.shared.fetchImage(from: url) { result in
+                    switch result {
+                    case let .success(imageData):
+                        let chatUser = ChatUser(
+                            username: username,
+                            email: userMail,
+                            profileImage: profilePicture
+                        )
+                        completion(.success(chatUser))
+                    case .failure(let failure):
+                        print()
+                    }
+                }
+            } else {
+                let chatUser = ChatUser(
+                    username: username,
+                    email: userMail,
+                    profileImage: profilePicture
+                )
+                completion(.success(chatUser))
+            }
+        }
+    }
+    
+    func fetchUserImage(userMail: String, completion: @escaping (Result<String, Error>) -> Void) {
+        database.child(userMail).child("profile_picture").observeSingleEvent(of: .value) { snapshot in
+            guard snapshot.exists() else {
+                completion(.success(""))
+                return
+            }
+            guard let pictureUrl = snapshot.value as? String else {
+                fatalError()
+            }
+            completion(.success(pictureUrl))
+        }
+    }
+    
+    func setUserImage(pictureUrl: String, userMail: String, completion: @escaping (Bool) -> Void) {
+        database.child(userMail).child("profile_picture").setValue(pictureUrl) { error, _ in
+            if let error {
+                print(error)
+                completion(false)
+            } else {
+                completion(true)
+            }
         }
     }
     
@@ -322,4 +390,11 @@ extension DatabaseManager {
             }
         }
     }
+}
+
+
+// MARK: - Images managment
+
+extension DatabaseManager {
+    
 }

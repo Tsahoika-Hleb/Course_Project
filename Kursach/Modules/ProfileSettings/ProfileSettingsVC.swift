@@ -22,13 +22,13 @@ class ProfileSettingsViewController: UIViewController {
     private let coordinator: AppCoordinator
     
     // MARK: - UI Elements
+    private let imagePicker = UIImagePickerController()
     
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = Constants.profileImageSize / 2
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .lightGray // Placeholder background color
         return imageView
     }()
     
@@ -96,6 +96,7 @@ class ProfileSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImagePicker()
         setupNavigationBar()
         setupViews()
         setupFields()
@@ -112,13 +113,24 @@ class ProfileSettingsViewController: UIViewController {
     }
     
     // MARK: - Setup
+    private func setupImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.allowsEditing = true
+    }
     
     private func setupFields() {
         viewModel.setCurrentUser()
         
         viewModel.updateFields = { [weak self] in
-            guard let self else { return }
-            usernameTextField.text = viewModel.currentUser?.username
+            DispatchQueue.main.async {
+                guard let self else { return }
+                if let imageData = self.viewModel.currentUser?.profileImage {
+                    self.profileImageView.image = UIImage(data: imageData)
+                } else {
+                    self.profileImageView.image = UIImage(systemName: "person.circle")
+                }
+            }
         }
         
         // TODO: Child mode
@@ -217,11 +229,20 @@ class ProfileSettingsViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func changePhotoTapped() {
-        // Handle change photo action
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @objc private func saveButtonTapped() {
         // Handle save button action
+        if viewModel.currentUser?.username != usernameTextField.text {
+            // TODO: Update username
+        }
+        
+        if let image = profileImageView.image, let imageData = image.pngData() {
+            viewModel.uploadImage(imageData: imageData)
+        } else {
+            print("NOT UPLOAD")
+        }
     }
     
     @objc private func backButtonTapped() {
@@ -252,5 +273,27 @@ class ProfileSettingsViewController: UIViewController {
         alertController.addAction(cancel)
         
         self.present(alertController, animated: true)
+    }
+}
+
+
+// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+
+extension ProfileSettingsViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    // Этот метод вызывается, когда пользователь завершает выбор изображения или фотографирования
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Получаем выбранное изображение
+        if let pickedImage = info[.originalImage] as? UIImage {
+            // Здесь можно работать с изображением (например, показать его в UIImageView)
+            profileImageView.image = pickedImage
+        }
+
+        // Закрываем контроллер изображения
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    // Этот метод вызывается, если пользователь отменяет выбор
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
