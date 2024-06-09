@@ -15,6 +15,7 @@ final class ChatViewModel {
     var updateMessages : (() -> ()) = {}
     
     // MARK: - Private properties
+    private let perspectiveManager = PerspectiveAPIManager.shared
     private let databaseManager = DatabaseManager.shared
     private var id: String?
     private var chatUsersEmail: [String] = []
@@ -46,6 +47,24 @@ final class ChatViewModel {
         }
     }
     
+    private func checkIfChatExists(message: Message) {
+        if let id {
+            sendMessage(message: message, id: id, completion: { success in
+                if !success {
+                    fatalError()
+                }
+            })
+        } else {
+            let newChatId = UUID().uuidString
+            id = newChatId
+            sendMessage(message: message, id: newChatId, completion: { success in
+                if success {
+                    self.listenMessages()
+                }
+            })
+        }
+    }
+    
     private func sendMessage(message: Message, id: String, completion: @escaping (Bool) -> Void) {
         messages.insert(message, at: 0)
         
@@ -72,27 +91,20 @@ final class ChatViewModel {
     }
     
     func sendMessage(_ text: String) {
-        let message = Message(
-            text: text,
-            senderEmail: CurrentUser.safeEmail,
-            timestamp: Date(),
-            isRead: false
-        )
-        
-        if let id {
-            sendMessage(message: message, id: id, completion: { success in
-                if !success {
-                    fatalError()
-                }
-            })
-        } else {
-            let newChatId = UUID().uuidString
-            id = newChatId
-            sendMessage(message: message, id: newChatId, completion: { success in
-                if success {
-                    self.listenMessages()
-                }
-            })
+        perspectiveManager.countToxity(in: text) { result in
+            switch result {
+            case let .success(toxicityCount):
+                let message = Message(
+                    text: text,
+                    senderEmail: CurrentUser.safeEmail,
+                    timestamp: Date(),
+                    isRead: false,
+                    toxicity: toxicityCount
+                )
+                self.checkIfChatExists(message: message)
+            case let .failure(error):
+                print(error)
+            }
         }
     }
 }

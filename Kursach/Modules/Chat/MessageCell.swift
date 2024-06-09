@@ -102,6 +102,10 @@ final class MessageCell: UITableViewCell {
                 make.leading.equalToSuperview().offset(Constants.cellPadding)
                 make.trailing.lessThanOrEqualToSuperview().offset(-100)
             }
+            
+            if UserDefaults.standard.bool(forKey: "childMode"), message.toxicity > 0.5 {
+                messageLabel.addBlurToView()
+            }
         }
     }
 }

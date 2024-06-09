@@ -40,6 +40,7 @@
 		FCBD000E2BF6C8B000F26795 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */; };
 		FCBD00122BF6EC0D00F26795 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */; };
 		FCBD00182BF6F09400F26795 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD00172BF6F09400F26795 /* AppCoordinator.swift */; };
+		FCD5DA902C166A970053F13D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5DA8F2C166A970053F13D /* UIView+Extension.swift */; };
 		FCE424132BFC55CF00A43600 /* PerspectiveAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */; };
 		FCE424192BFC625800A43600 /* ReplicateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE424182BFC625800A43600 /* ReplicateManager.swift */; };
 		FCE4241E2BFC711400A43600 /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE4241D2BFC711400A43600 /* NewConversationVC.swift */; };
@@ -91,6 +92,7 @@
 		FCBD000D2BF6C8B000F26795 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		FCBD00172BF6F09400F26795 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FCD5DA8F2C166A970053F13D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FCE424122BFC55CF00A43600 /* PerspectiveAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveAPIManager.swift; sourceTree = "<group>"; };
 		FCE424182BFC625800A43600 /* ReplicateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicateManager.swift; sourceTree = "<group>"; };
 		FCE4241D2BFC711400A43600 /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				FC46385C2B27041C00ECE1F2 /* UITextView+extension.swift */,
 				FCBD00112BF6EC0D00F26795 /* UIAlertController+Extension.swift */,
 				FCE4242C2BFE7DD600A43600 /* UIColor+Extension.swift */,
+				FCD5DA8F2C166A970053F13D /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				FC4638302B212BBE00ECE1F2 /* AppDelegate.swift in Sources */,
 				FCE4242D2BFE7DD600A43600 /* UIColor+Extension.swift in Sources */,
 				FC4FF97B2BF7B9AF00F711BF /* ChatTableViewCell.swift in Sources */,
+				FCD5DA902C166A970053F13D /* UIView+Extension.swift in Sources */,
 				FC4FF97D2BF816A200F711BF /* ChatsViewController.swift in Sources */,
 				FCE424202BFC729800A43600 /* ChatListStrings.swift in Sources */,
 				FC25F1292BF035AC00911513 /* AuthStrings.swift in Sources */,

@@ -55,15 +55,5 @@ final class UserTableViewCell: UITableViewCell {
         if let image = user.profileImage {
             self.avatarImageView.image = UIImage(data: image)
         }
-//        if let pictureUrl = user.pictureUrl {
-//            storageManager.fetchImage(from: pictureUrl) { result in
-//                switch result {
-//                case let .success(imageData):
-//                    self.avatarImageView.image = UIImage(data: imageData)
-//                case .failure(let failure):
-//                    print(failure)
-//                }
-//            }
-//        }
     }
 }

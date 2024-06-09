@@ -134,6 +134,7 @@ class ProfileSettingsViewController: UIViewController {
         }
         
         // TODO: Child mode
+        childModeSwitch.isOn = UserDefaults.standard.bool(forKey: "childMode")
     }
     
     private func setupNavigationBar() {
@@ -243,6 +244,8 @@ class ProfileSettingsViewController: UIViewController {
         } else {
             print("NOT UPLOAD")
         }
+        
+        viewModel.setupChildMode(isOn: childModeSwitch.isOn)
     }
     
     @objc private func backButtonTapped() {

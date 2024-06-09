@@ -66,7 +66,8 @@ final class ChatsViewModel {
                                     self.allChats[i] = Chat(
                                         id: chatInAllChats.id,
                                         name: chatInAllChats.name,
-                                        lastMessage: chatInAllChats.lastMessage,
+                                        lastMessage: chatInAllChats.lastMessage, 
+                                        lastMessageToxicity: chatInAllChats.lastMessageToxicity,
                                         timestamp: chatInAllChats.timestamp,
                                         unreadMessagesCount: chatInAllChats.unreadMessagesCount,
                                         image: imageData

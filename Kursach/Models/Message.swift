@@ -5,6 +5,7 @@ struct Message {
     let senderEmail: String
     let timestamp: Date
     let isRead: Bool
+    let toxicity: Double
     
     var timestampString: String {
         let formater = DateFormatter()

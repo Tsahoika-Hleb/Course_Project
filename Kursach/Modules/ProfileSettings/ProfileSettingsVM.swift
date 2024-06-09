@@ -20,16 +20,9 @@ final class ProfileSettingsVM {
     
     // MARK: - Iternal methods
     
-//    func fetchImage(imageUrl: String, completion: @escaping (Data) -> Void) {
-//        storageManager.fetchImage(from: imageUrl) { result in
-//            switch result {
-//            case let .success(imageData):
-//                completion(imageData)
-//            case .failure(let failure):
-//                print(failure)
-//            }
-//        }
-//    }
+    func setupChildMode(isOn: Bool) {
+        UserDefaults.standard.set(isOn, forKey: "childMode")
+    }
     
     func uploadImage(imageData: Data) {
         storageManager.uploadProfilePicture(data: imageData) { result in
@@ -53,9 +46,35 @@ final class ProfileSettingsVM {
             switch result {
             case let .success(user):
                 self.currentUser = user
+                self.fetchImage()
             case let .failure(error):
                 print(error)
                 fatalError()
+            }
+        }
+    }
+    
+    private func fetchImage() {
+        guard let currentUser else { return }
+        databaseManager.fetchUserImage(userMail: currentUser.safeEmail) { result in
+            switch result {
+            case let .success(imageUrl):
+                guard !imageUrl.isEmpty else { return }
+                self.storageManager.fetchImage(from: imageUrl) { result in
+                    switch result {
+                    case let .success(imageData):
+                        let curUser = currentUser
+                        self.currentUser = ChatUser(
+                            username: curUser.username,
+                            email: curUser.email,
+                            profileImage: imageData
+                        )
+                    case .failure(let failure):
+                        print(failure)
+                    }
+                }
+            case .failure(let failure):
+                print(failure)
             }
         }
     }

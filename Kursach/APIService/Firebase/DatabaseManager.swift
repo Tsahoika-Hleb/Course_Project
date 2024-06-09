@@ -117,11 +117,13 @@ extension DatabaseManager {
                    let lastMessageDict = chatData["lastMessage"] as? [String: Any],
                    let isRead = lastMessageDict["is_read"] as? Bool,
                    let text = lastMessageDict["text"] as? String,
-                   let timestamp = lastMessageDict["timestamp"] as? String {
+                   let timestamp = lastMessageDict["timestamp"] as? String,
+                   let lastMessageToxicity = lastMessageDict["toxicity"] as? Double {
                     let chat = Chat(
                         id: chatId,
                         name: name,
-                        lastMessage: text,
+                        lastMessage: text, 
+                        lastMessageToxicity: lastMessageToxicity,
                         timestamp: timestamp.dateFromTimestampString() ?? Date(),
                         unreadMessagesCount: isRead ? 1 : 0,
                         image: nil
@@ -236,7 +238,8 @@ extension DatabaseManager {
                       let text = messageData["text"] as? String,
                       let sender = messageData["sender"] as? String,
                       let timestamp = messageData["timestamp"] as? String,
-                      let isRead = messageData["is_read"] as? Bool else {
+                      let isRead = messageData["is_read"] as? Bool,
+                      let toxicity = messageData["toxicity"] as? Double else {
                     fatalError()
                 }
                 
@@ -249,7 +252,8 @@ extension DatabaseManager {
                     text: text,
                     senderEmail: sender,
                     timestamp: timestamp,
-                    isRead: isRead
+                    isRead: isRead, 
+                    toxicity: toxicity
                 )
                 messages.append(message)
             }
@@ -269,7 +273,8 @@ extension DatabaseManager {
             "timestamp": message.timestampString,
             "text": message.text,
             "is_read": message.isRead,
-            "sender": message.senderEmail
+            "sender": message.senderEmail,
+            "toxicity": message.toxicity
         ]
         
         let ref = database.child("chats").child(chatId)
@@ -289,7 +294,8 @@ extension DatabaseManager {
                 let lastMessageData: [String: Any] = [
                     "is_read": false,
                     "text": message.text,
-                    "timestamp": message.timestampString
+                    "timestamp": message.timestampString,
+                    "toxicity" : message.toxicity
                 ]
                 for userEmail in userEmails {
                     self.updateLastMessage(
@@ -313,7 +319,8 @@ extension DatabaseManager {
                                 "lastMessage": [
                                     "is_read": false,
                                     "text": message.text,
-                                    "timestamp": message.timestampString
+                                    "timestamp": message.timestampString,
+                                    "toxicity": message.toxicity
                                 ]
                             ]
                             self.addChatToUser(user: userEmail, chatId: chatId, chatData: chatData)
@@ -390,11 +397,4 @@ extension DatabaseManager {
             }
         }
     }
-}
-
-
-// MARK: - Images managment
-
-extension DatabaseManager {
-    
 }
